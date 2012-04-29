@@ -1,0 +1,1 @@
+A meaningless project I'm using to teach myself XNA.
