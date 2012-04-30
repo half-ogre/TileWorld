@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace TileWorld
 {
-    public class WorldMap
+    public class World
     {
         public int[] GroundTiles { get; set; }
         public Point Size { get; set; }

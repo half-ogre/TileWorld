@@ -42,28 +42,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="world-texture.bmp">
-      <Name>world-texture</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="world-map.xml">
-      <Name>world-map</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\TileWorldData\TileWorldData.csproj">
       <Project>{F1557491-66D7-4EF3-B8AB-ACA49CA98631}</Project>
       <Name>TileWorldData</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="world-tilesheet.xml">
-      <Name>world-tilesheet</Name>
+    <Compile Include="master-tilesheet-texture.png">
+      <Name>master-tilesheet-texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="master-tilesheet.xml">
+      <Name>master-tilesheet</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Compile>
+    <Compile Include="world.xml">
+      <Name>world</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Compile>

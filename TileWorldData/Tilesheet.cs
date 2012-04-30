@@ -2,7 +2,7 @@
 
 namespace TileWorld
 {
-    public class WorldTilesheet
+    public class Tilesheet
     {
         public string TextureName { get; set; }
         public int TilesPerRow { get; set; }

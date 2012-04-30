@@ -11,9 +11,9 @@ namespace TileWorld
     {
         readonly GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
-        WorldTilesheet _worldTilesheet;
-        Texture2D _worldTexture;
-        WorldMap _worldMap;
+        Tilesheet _masterTilesheet;
+        Texture2D _masterTilesheetTexture;
+        World _worldMap;
 
         public TileWorldGame()
         {
@@ -41,12 +41,12 @@ namespace TileWorld
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _worldTilesheet = Content.Load<WorldTilesheet>("world-tilesheet");
-            _worldTexture = Content.Load<Texture2D>(_worldTilesheet.TextureName);
-            _worldMap = Content.Load<WorldMap>("world-map");
+            _masterTilesheet = Content.Load<Tilesheet>("master-tilesheet");
+            _masterTilesheetTexture = Content.Load<Texture2D>(_masterTilesheet.TextureName);
+            _worldMap = Content.Load<World>("world");
 
-            _graphics.PreferredBackBufferHeight = _worldTilesheet.TileSize.Y * _worldMap.Size.Y;
-            _graphics.PreferredBackBufferWidth = _worldTilesheet.TileSize.X * _worldMap.Size.X;
+            _graphics.PreferredBackBufferHeight = _masterTilesheet.TileSize.Y * _worldMap.Size.Y;
+            _graphics.PreferredBackBufferWidth = _masterTilesheet.TileSize.X * _worldMap.Size.X;
             _graphics.ApplyChanges();
         }
 
@@ -89,15 +89,15 @@ namespace TileWorld
                 for (int x = 0; x < _worldMap.Size.X; x++)
                 {
                     var groundTileIndex = _worldMap.GetGroundTileIndex(new Point(x, y));
-                    var sourceRectange = _worldTilesheet.GetGroundTileRectangle(groundTileIndex);
+                    var sourceRectange = _masterTilesheet.GetGroundTileRectangle(groundTileIndex);
                     var destinationRectangle = new Rectangle(
-                        x * _worldTilesheet.TileSize.X,
-                        y * _worldTilesheet.TileSize.Y,
-                        _worldTilesheet.TileSize.X,
-                        _worldTilesheet.TileSize.Y);
+                        x * _masterTilesheet.TileSize.X,
+                        y * _masterTilesheet.TileSize.Y,
+                        _masterTilesheet.TileSize.X,
+                        _masterTilesheet.TileSize.Y);
 
                     _spriteBatch.Draw(
-                        _worldTexture,
+                        _masterTilesheetTexture,
                         destinationRectangle,
                         sourceRectange,
                         Color.White);
